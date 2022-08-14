@@ -1,0 +1,163 @@
+body {
+  font-family: "Kanit", sans-serif;
+  color: #715c71;
+}
+.container {
+  max-width: 750px;
+  padding: 0 40px 0 10px;
+  margin-top: 20px;
+  border-radius: 4px;
+  background: #fff3fb;
+  box-shadow: #cfc6cf 2px 2px 5px;
+}
+.search {
+  font-size: 18px;
+  padding: 10px 5px;
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 100%;
+  border: 2px solid #968296;
+  border-radius: 4px;
+  box-shadow: #dac9da 2px 2px 5px;
+  transition: all 200ms ease-in-out;
+}
+.search:hover {
+  box-shadow: #ad9ead 3px 3px 6px;
+}
+.search-button {
+  font-size: 18px;
+  padding: 10px 14px;
+  margin-top: 20px;
+  border: 2px solid #968296;
+  border-radius: 4px;
+  background: #fff3fb;
+  box-shadow: #dac9da 2px 2px 5px;
+  transition: all 200ms ease-in-out;
+}
+.search-button:hover {
+  box-shadow: #ad9ead 3px 3px 6px;
+  cursor: pointer;
+}
+.current-location-button {
+  font-size: 18px;
+  padding: 10px 7px;
+  margin-top: 20px;
+  border: 2px solid #968296;
+  border-radius: 4px;
+  background: #fff3fb;
+  box-shadow: #dac9da 2px 2px 5px;
+  transition: all 200ms ease-in-out;
+  color: #715c71;
+}
+.current-location-button:hover {
+  box-shadow: #ad9ead 3px 3px 6px;
+  cursor: pointer;
+}
+.col-3 {
+  padding-right: 0px;
+}
+.today {
+  text-align: center;
+  padding: 20px 40px 8px;
+  margin: 10px 5px 10px 0px;
+  background-color: #ffe1f5;
+  font-size: 20px;
+  border-radius: 4px;
+  box-shadow: #dac9da 2px 2px 5px;
+  transition: all 200ms ease-in-out;
+}
+.today:hover {
+  box-shadow: #ad9ead 3px 3px 6px;
+}
+.stats {
+  text-align: left;
+  padding: 20px 40px 6px;
+  margin: 10px 5px 20px 0px;
+  background-color: #ffe1f5;
+  font-size: 20px;
+  border-radius: 4px;
+  box-shadow: #dac9da 2px 2px 5px;
+  transition: all 200ms ease-in-out;
+}
+.stats:hover {
+  box-shadow: #ad9ead 3px 3px 6px;
+}
+.forecast {
+  text-align: center;
+  padding: 20px 40px 10px;
+  margin: 10px 0px 10px 5px;
+  background-color: #ffe1f5;
+  border-radius: 4px;
+  box-shadow: #dac9da 2px 2px 5px;
+  transition: all 200ms ease-in-out;
+}
+.forecast:hover {
+  box-shadow: #ad9ead 3px 3px 6px;
+}
+.main {
+  padding: 0;
+}
+.main-row {
+  margin-left: 20px;
+}
+.forecast-icon {
+  font-size: 42px;
+  margin: 20px 0;
+  position: relative;
+  bottom: 15px;
+}
+.day {
+  text-align: right;
+  font-size: 18px;
+}
+.today-word {
+  font-weight: 500;
+}
+.temps {
+  font-size: 20px;
+  line-height: 50px;
+  vertical-align: text-top;
+}
+.today-temp {
+  font-size: 42px;
+  margin-left: 10px;
+}
+.today-icon {
+  font-size: 48px;
+  position: relative;
+  top: 10px;
+}
+.location {
+  font-weight: bold;
+  font-size: 22px;
+}
+.forecast-heading {
+  font-weight: bold;
+  font-size: 22px;
+}
+.feels-like {
+  font-weight: 500;
+}
+.feels-like-icon {
+  margin-right: 6px;
+}
+.forecast-temp {
+  font-weight: 300;
+}
+#celsius {
+  transition: all 150ms ease-in-out;
+}
+#celsius:hover {
+  font-weight: 700;
+  cursor: pointer;
+}
+#farenheit {
+  transition: all 150ms ease-in-out;
+}
+#farenheit:hover {
+  font-weight: 700;
+  cursor: pointer;
+}
+.active-temp {
+  font-weight: 700;
+}
