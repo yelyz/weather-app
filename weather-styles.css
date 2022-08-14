@@ -2,6 +2,21 @@ body {
   font-family: "Kanit", sans-serif;
   color: #715c71;
 }
+footer {
+  size: 12px;
+  text-align: center;
+  margin-top: 10px;
+  color: #968296;
+}
+.code-link {
+  text-decoration: none;
+  color: #fcc5e9;
+  transition: all 200ms ease-in-out;
+}
+.code-link:hover {
+  text-decoration: underline;
+  color: #fcc5e9;
+}
 .container {
   max-width: 750px;
   padding: 0 40px 0 10px;
