@@ -16,14 +16,27 @@ function farenheit(event) {
 }
 
 function showTemp(response) {
+  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let tempDisplay = document.querySelector("#today-temp-number");
   tempDisplay.innerHTML = temperature;
-
+  let windSpeed = document.querySelector("#wind-speed");
+  windSpeed.innerHTML = Math.round(response.data.wind.speed);
+  let humidity = document.querySelector("#humidity");
+  humidity.innerHTML = Math.round(response.data.main.humidity);
+  let feelsLike = document.querySelector("#feels-like");
+  feelsLike.innerHTML = Math.round(response.data.main.feels_like);
   celsiusTemp = temperature;
-
+  let minTemp = document.querySelector("#min-temp");
+  minTemp.innerHTML = Math.round(response.data.main.temp_min);
+  let maxTemp = document.querySelector("#max-temp");
+  maxTemp.innerHTML = Math.round(response.data.main.temp_max);
   let currentCity = document.querySelector("#city");
   currentCity.innerHTML = response.data.name;
+  let description = document.querySelector("#description");
+  description.innerHTML = `${response.data.weather[0].description
+    .charAt(0)
+    .toUpperCase()}${response.data.weather[0].description.slice(1)}`;
 
   celsiusLink.classList.add("active-temp");
   farenheitLink.classList.remove("active-temp");
