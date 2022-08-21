@@ -175,4 +175,5 @@ footer {
 }
 .active-temp {
   font-weight: 700;
+  cursor: auto;
 }

@@ -1,34 +1,32 @@
 function celsius(event) {
   event.preventDefault();
   let todayTemp = document.querySelector("#today-temp-number");
-  todayTemp.innerHTML = 22;
+  todayTemp.innerHTML = Math.round(celsiusTemp);
 
-  let celsiusLink = document.querySelector("#celsius");
   celsiusLink.classList.add("active-temp");
-  let farenheitLink = document.querySelector("#farenheit");
   farenheitLink.classList.remove("active-temp");
 }
 function farenheit(event) {
   event.preventDefault();
   let todayTemp = document.querySelector("#today-temp-number");
-  todayTemp.innerHTML = 72;
+  todayTemp.innerHTML = Math.round(celsiusTemp * (9 / 5) + 32);
 
-  let celsiusLink = document.querySelector("#celsius");
   celsiusLink.classList.remove("active-temp");
-  let farenheitLink = document.querySelector("#farenheit");
   farenheitLink.classList.add("active-temp");
 }
-let celsiusLink = document.querySelector("#celsius");
-celsiusLink.addEventListener("click", celsius);
-let farenheitLink = document.querySelector("#farenheit");
-farenheitLink.addEventListener("click", farenheit);
 
 function showTemp(response) {
   let temperature = Math.round(response.data.main.temp);
   let tempDisplay = document.querySelector("#today-temp-number");
   tempDisplay.innerHTML = temperature;
+
+  celsiusTemp = temperature;
+
   let currentCity = document.querySelector("#city");
   currentCity.innerHTML = response.data.name;
+
+  celsiusLink.classList.add("active-temp");
+  farenheitLink.classList.remove("active-temp");
 }
 
 function search(response) {
@@ -45,6 +43,8 @@ function searchSubmit(event) {
 
 function showCurrentTemp(response) {
   let temperature = Math.round(response.data.main.temp);
+  celsiusTemp = temperature;
+
   let currentTemp = document.querySelector("#today-temp-number");
   currentTemp.innerHTML = temperature;
   let location = `${response.data.name
@@ -53,6 +53,9 @@ function showCurrentTemp(response) {
 
   let currentCity = document.querySelector("#city");
   currentCity.innerHTML = location;
+
+  celsiusLink.classList.add("active-temp");
+  farenheitLink.classList.remove("active-temp");
 }
 
 function getLocation(response) {
@@ -106,10 +109,22 @@ let minutes = date.getMinutes();
 let currentDate = document.querySelector("#date");
 currentDate.innerHTML = `${months[month]} ${monthDay}, ${weekdays[weekday]} `;
 
-let currentTime = document.querySelector("#time");
-currentTime.innerHTML = `${hours}:${minutes}`;
+if (minutes > 9) {
+  let currentTime = document.querySelector("#time");
+  currentTime.innerHTML = `${hours}:${minutes}`;
+} else {
+  let currentTime = document.querySelector("#time");
+  currentTime.innerHTML = `${hours}:0${minutes}`;
+}
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getPosition);
+
+let celsiusTemp = null;
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", celsius);
+let farenheitLink = document.querySelector("#farenheit");
+farenheitLink.addEventListener("click", farenheit);
 
 search("Kyiv");
