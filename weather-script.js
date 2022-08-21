@@ -27,19 +27,20 @@ function showTemp(response) {
   let temperature = Math.round(response.data.main.temp);
   let tempDisplay = document.querySelector("#today-temp-number");
   tempDisplay.innerHTML = temperature;
+  let currentCity = document.querySelector("#city");
+  currentCity.innerHTML = response.data.name;
 }
 
-function search(event) {
+function search(response) {
+  let apiKey = "11012146b3dbe3f297a131f8ee033e20";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${response}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemp);
+}
+
+function searchSubmit(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-bar");
-  let currentCity = document.querySelector("#city");
-  currentCity.innerHTML = `${searchInput.value
-    .charAt(0)
-    .toUpperCase()}${searchInput.value.slice(1)}`;
-
-  let apiKey = "11012146b3dbe3f297a131f8ee033e20";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemp);
+  search(searchInput.value);
 }
 
 function showCurrentTemp(response) {
@@ -67,7 +68,7 @@ function getPosition() {
 }
 
 let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", search);
+searchForm.addEventListener("submit", searchSubmit);
 
 let date = new Date();
 
@@ -110,3 +111,5 @@ currentTime.innerHTML = `${hours}:${minutes}`;
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getPosition);
+
+search("Kyiv");
