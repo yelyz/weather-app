@@ -73,7 +73,7 @@ footer {
 }
 .today {
   text-align: center;
-  padding: 20px 40px 8px;
+  padding: 25px 40px 12px;
   margin: 10px 5px 10px 0px;
   background-color: #ffe1f5;
   font-size: 20px;
@@ -86,7 +86,7 @@ footer {
 }
 .stats {
   text-align: left;
-  padding: 20px 40px 6px;
+  padding: 20px 40px 12px;
   margin: 10px 5px 20px 0px;
   background-color: #ffe1f5;
   font-size: 20px;
@@ -99,7 +99,7 @@ footer {
 }
 .forecast {
   text-align: center;
-  padding: 20px 40px 10px;
+  padding: 20px 40px 0px;
   margin: 10px 0px 10px 5px;
   background-color: #ffe1f5;
   border-radius: 4px;
@@ -115,9 +115,9 @@ footer {
 .main-row {
   margin-left: 20px;
 }
-.forecast-icon {
-  font-size: 42px;
-  margin: 20px 0;
+.forecast-icons {
+  width: 80px;
+  padding: 10px 0;
   position: relative;
   bottom: 15px;
 }
@@ -138,13 +138,14 @@ footer {
   margin-left: 10px;
 }
 .today-icon {
-  font-size: 48px;
+  width: 100px;
   position: relative;
-  top: 10px;
+  bottom: 10px;
 }
 .location {
   font-weight: bold;
   font-size: 22px;
+  text-transform: capitalize;
 }
 .forecast-heading {
   font-weight: bold;
