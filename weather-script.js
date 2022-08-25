@@ -15,8 +15,58 @@ function farenheit(event) {
   farenheitLink.classList.add("active-temp");
 }
 
+function formatForecastDate(date) {
+  let forecastDate = new Date(date * 1000);
+  let forecastMonth = forecastDate.getMonth();
+  let forecastMonthDay = forecastDate.getDate();
+  let forecastWeekday = forecastDate.getDay();
+
+  return `${months[forecastMonth]} ${forecastMonthDay}, ${weekdays[forecastWeekday]}`;
+}
+
+function displayForecast(response) {
+  let forecastDays = response.data.daily;
+  let forecastElement = document.querySelector("#forecast-block");
+  let forecastBlock = ``;
+  forecastDays.forEach(function (day, index) {
+    if (index < 6 && index > 0) {
+      forecastBlock =
+        forecastBlock +
+        `
+<div class="row">
+                <div class="col-4">
+                  <img
+                    src="http://openweathermap.org/img/wn/${
+                      day.weather[0].icon
+                    }@2x.png"
+                    id="day-one-icon"
+                    class="forecast-icons"
+                  />
+                </div>
+                <div class="col-8">
+                  <p class="day">${formatForecastDate(
+                    day.dt
+                  )}<br /><span class="forecast-temp"
+                      >${Math.round(day.temp.max)}°C / ${Math.round(
+          day.temp.min
+        )}°C</span
+                    >
+                  </p>
+                </div>
+              </div>`;
+    }
+  });
+  forecastElement.innerHTML = forecastBlock;
+}
+
+function getForecast(coords) {
+  let apiKey = "11012146b3dbe3f297a131f8ee033e20";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coords.lat}&lon=${coords.lon}&exclude={part}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showTemp(response) {
-  console.log(response.data);
+  getForecast(response.data.coord);
   let temperature = Math.round(response.data.main.temp);
   let tempDisplay = document.querySelector("#today-temp-number");
   tempDisplay.innerHTML = temperature;
@@ -74,6 +124,8 @@ function showCurrentTemp(response) {
 
   celsiusLink.classList.add("active-temp");
   farenheitLink.classList.remove("active-temp");
+
+  getForecast(response.data.coord);
 }
 
 function getLocation(response) {
