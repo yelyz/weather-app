@@ -60,13 +60,13 @@
       <div class="row main-row">
         <div class="col-6 main">
           <div class="today">
-            <p class="location"><span id="city">Kyiv</span></p>
+            <p class="location"><span id="city"></span></p>
             <p>
               <span class="today-word"> Today </span>
               <br />
-              <span id="date"> June 11, Monday </span>
+              <span id="date"></span>
               <br />
-              <span id="time"> 20:46 </span>
+              <span id="time"></span>
             </p>
             <p>
               <img
@@ -82,9 +82,11 @@
               >
             </p>
             <p>
-              <i class="fa-regular fa-sun"></i> <span id="max-temp"></span>°C
+              <i class="fa-regular fa-sun"></i>
+              <span id="max-temp"></span> °<span id="unit-max">C</span>
               <br />
-              <i class="fa-regular fa-moon"></i> <span id="min-temp"></span>°C
+              <i class="fa-regular fa-moon"></i>
+              <span id="min-temp"></span> °<span id="unit-min">C</span>
             </p>
           </div>
           <div class="stats">
@@ -93,13 +95,16 @@
               <br />
               <i class="fa-solid fa-temperature-half feels-like-icon"></i>
               <span class="feels-like">
-                Feels like <span id="feels-like">18</span>°C
+                Feels like <span id="feels-like"></span> °<span
+                  id="unit-feels-like"
+                  >C</span
+                >
               </span>
             </p>
             <p>
-              Wind: <span id="wind-speed">11</span> km/h
+              Wind: <span id="wind-speed"></span> km/h
               <br />
-              Humidity: <span id="humidity">86</span>%
+              Humidity: <span id="humidity"></span>%
             </p>
           </div>
         </div>
